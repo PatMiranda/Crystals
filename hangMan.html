@@ -234,7 +234,12 @@ $("#show").on("click", function () {
             letterGuess = event.key.toUpperCase() ;
                    console.log(letterGuess);
 
-            if (wordBox.indexOf(letterGuess) == -1 && guessedLetters.indexOf(letterGuess) == -1){
+                 var letters = /[a-zA-Z]+/;
+                
+
+
+                if ( remainingGuesses > 0 && correctGuess !== wordBox.length  &&
+            wordBox.indexOf(letterGuess) == -1 && guessedLetters.indexOf(letterGuess) == -1);{
                 
             
            if (currentWord.indexOf(letterGuess) > -1){
@@ -263,11 +268,11 @@ $("#show").on("click", function () {
                
 
            }
-            }
+            
            
            document.getElementById("guessesSpan").textContent = remainingGuesses.toString();
                 document.getElementById("guessedLetters").textContent = guessedLetters.join(" ");
-           
+            }
         }
         
     };
@@ -304,7 +309,7 @@ $("#show").on("click", function () {
         document.onkeyup = function(event) {
             
             letterGuess = event.key.toUpperCase() ;
-
+            if (remainingGuesses > 0 && correctGuess !== wordBox.length){ 
             if (wordBox.indexOf(letterGuess) == -1 && guessedLetters.indexOf(letterGuess) == -1){
                 
             
@@ -337,7 +342,7 @@ $("#show").on("click", function () {
             document.getElementById("guessesSpan").textContent = remainingGuesses.toString();
                 document.getElementById("guessedLetters").textContent = guessedLetters.join(" ");
         }
-        
+        }
     };
         
     //Builds the "HANGMAN", in my version, it is an Incantation of Destruction... I am a nerd. 
