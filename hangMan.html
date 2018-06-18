@@ -238,8 +238,8 @@ $("#show").on("click", function () {
                 
 
 
-                if ( remainingGuesses > 0 && correctGuess !== wordBox.length  &&
-            wordBox.indexOf(letterGuess) == -1 && guessedLetters.indexOf(letterGuess) == -1);{
+                if ( remainingGuesses > 0 && 
+            wordBox.indexOf(letterGuess) == -1 && guessedLetters.indexOf(letterGuess) == -1){
                 
             
            if (currentWord.indexOf(letterGuess) > -1){
@@ -268,11 +268,11 @@ $("#show").on("click", function () {
                
 
            }
-            
+            } 
            
            document.getElementById("guessesSpan").textContent = remainingGuesses.toString();
                 document.getElementById("guessedLetters").textContent = guessedLetters.join(" ");
-            }
+           
         }
         
     };
