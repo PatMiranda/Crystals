@@ -65,9 +65,11 @@
                     <img id="endGameImg" src="assets/book-burning.jpg" style="display: none">
                     <p id="youLost" style="display: none">The book is engulfed in flames, burning your hands and destroying any chance of 
                         pursuing this unknown death cult. Be more careful next time, Investigator.
+                        <a class="btn btn-dark btn-sm" href="index.html">Return Home</a>
                     </p>
                     <p id="additionalLosses" style="display: none">The book is engulfed in flames, burning your hands. You learn nothing, gain nothing.
                         Spend your efforts more wisely Investigator!
+                        <a class="btn btn-dark btn-sm" href="index.html">Return Home</a>
                     </p>
                     <button onClick="resetGame()" id="resetButton" class="btn btn-dark btn-sm" style="display: none">Try Again?</button>
                 </div>
@@ -105,6 +107,7 @@
                 This deprived cult is planning on unleashing their God's wrath upon our world. Stop them, Investigator!</p>
                 <a id="continue" href="interlude2.html" class="btn btn-dark btn-lg">Pursue the Investigation</a>
                 <button id="resetGame" onClick="resetGame()" class="btn btn-dark btn-lg">Unlock more Tomes</button>
+                <a class="btn btn-dark btn-lg" href="index.html">Return Home</a>
                 </div>
             </div>
         </div>
@@ -238,7 +241,7 @@ $("#show").on("click", function () {
                 
 
 
-                if ( remainingGuesses > 0 && 
+                if ( remainingGuesses > 0 && currentWord.indexOf("-") === -1 &&
             wordBox.indexOf(letterGuess) == -1 && guessedLetters.indexOf(letterGuess) == -1){
                 
             
