@@ -164,8 +164,6 @@ $("#targetNumber").append(frequencyValue);
 
 
 function updateInput (num){
-    inputValue = inputValue + num;
-    console.log("this is the overall score" + inputValue);
     $("#crystalNumber").html(inputValue);
 
 }
@@ -175,28 +173,28 @@ console.log(crystal3Value);
 console.log(crystal4Value);
 
 
-$("#crystal1").on("click", function (){
-    updateInput(crystal1Value);
-    Endgame(inputValue);
-    loseGame(attempts);
-    })
-$("#crystal2").on("click", function (){
-    updateInput(crystal2Value);
+$(".crystal").on("click", function (){
+    console.log("this is THIS " + this.id)
+    switch ( this.id){
+        case "crystal1": 
+         inputValue = inputValue + crystal1Value;
+         console.log("this is the input value" + inputValue);
+         break;
+         case "crystal2" :
+         inputValue = inputValue + crystal2Value;
+         break;
+         case "crystal3" :
+         inputValue = inputValue + crystal3Value;
+         break; 
+         case "crystal4" :
+         inputValue = inputValue + crystal4Value;
+        
+    }
+    updateInput(inputValue);
     Endgame(inputValue);
     loseGame(attempts);
     })
 
-$("#crystal3").on("click", function (){
-    updateInput(crystal3Value);
-    Endgame(inputValue);
-    loseGame(attempts);
-    })
-
-$("#crystal4").on("click", function (){
-    updateInput(crystal4Value);
-    Endgame(inputValue);
-    loseGame(attempts);
-    })
 
  function Endgame (num){
         if (frequencyValue === num){

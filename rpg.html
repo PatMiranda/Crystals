@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="style2.css" type="text/css">
+    <link rel="stylesheet" href="style3.css" type="text/css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+     <link href="https://fonts.googleapis.com/css?family=Caesar+Dressing|Homemade+Apple|Iceland|Metamorphous|Nosifer|UnifrakturMaguntia|Zeyada" rel="stylesheet">
+    <title>RPG</title>
+</head>
+<body>
+    
+        <video autoplay muted loop id="myVideo">
+                <source src="assets2/grave.mp4" type="video/mp4">
+              </video>
+             
+    <div class="container">
+        <div class="row">
+            <div id ="header" class="col-md-12">
+                <h1>Eldritch Investigators </h1>
+                <h2 id="chapter">Chapter 3</h2>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row" id="first-box">  
+            <div id="instruct" class="col-md-3">
+    <p>Click on a demon below to use your Mind-Control amulet to convert them to fight for you. 
+    </p>
+            </div>
+            <div class="col-md-3">
+                <img src="assets3/amulet.jpg" style="height: 250px">
+            </div>
+        </div>
+    </div>
+    <div class="container" id="monsterBox">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="monsters" id="monster1">
+                    <img src="assets3/monster1.jpg" id="monsters1">
+                    <h5><span id="monName1"></span>HP:<span id="monHp1"></span></h5>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="monsters" id="monster2">
+                    <img src="assets3/monster2.jpg" id="monsters2">
+                    <h5><span id="monName2"></span>HP:<span id="monHp2"></span></h5>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="monsters" id="monster3">
+                    <img src="assets3/monster3.jpg" id="monsters3">
+                    <h5><span id="monName3"></span>HP:<span id="monHp3"></span></h5>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="monsters" id="monster4">
+                    <img src="assets3/monster4.jpg" id="monsters4">
+                    <h5><span id="monName4"></span>HP:<span id="monHp4"></span></h5>
+                </div>
+            </div>
+           
+          
+        </div>
+    </div>
+    <div class="container">
+            <div class="row">
+                    <div class="col-md-12" id="enemies">
+        
+                    </div>
+        
+                </div>
+        <div class="row">
+            <div class="col-md-2">
+                <p>Ally:</p>
+            </div>
+            <div class="col-md-6" id="allied">
+
+            </div>
+        </div>
+        <div class="col-md-1">
+            <button class="btn btn-lg btn-dark" id="attackButton">Attack</button>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-2">
+                <p>Current Enemy:</p>
+            </div>
+            <div class="col-md-6" id="currentEnemy">
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="footer">
+            <div class="row">
+                <div class="col-md-12">
+                        <audio id="fightAudio" src="assets2/" preload="auto">
+                        </audio>
+                        <audio id="screechAudio" src="assets/01-183- Forest Fire.mp3" preload="auto">
+                        </audio>
+                        <audio id="flameAudio" src="assets/01-181- Fire Ball Burst.mp3" preload="auto">
+                        </audio>
+                       
+                <!-- <audio controls id="player">
+                        <source src="background.mp3" type="audio/mpeg">
+                    </audio> -->
+                    <button onClick="togglePlay()" class="btn btn-lg btn-dark" title="Play/Pause Song"><span class="fa fa-music"></span></button> 
+                </div>
+            </div>
+        </div>
+</body>
+<script>
+
+var monster1 = new Object();
+ monster1.name = "Ursis ";
+ monster1.hp = 100;
+ monster1.ap = 8
+ monster1.ca = 40;
+ monster1.ally = false;
+ document.getElementById("monName1").textContent = monster1.name;
+ document.getElementById("monHp1").textContent = monster1.hp.toString();
+var monster2 = new Object();
+ monster2.name = "Drakthis "
+ monster2.hp = 120;
+ monster2.ap = 8;
+ monster2.ca = 35;
+ monster2.ally = false;
+ document.getElementById("monName2").textContent = monster2.name;
+ document.getElementById("monHp2").textContent = monster2.hp.toString();
+var monster3 = new Object();
+ monster3.name = "Qulz'Th "
+ monster3.hp = 130;
+ monster3.ap = 8;
+ monster3.ca = 30;
+ monster3.ally = false;
+ document.getElementById("monName3").textContent = monster3.name;
+ document.getElementById("monHp3").textContent = monster3.hp.toString();
+var monster4 = new Object();
+ monster4.name = "Gruzzt "
+ monster4.hp = 140;
+ monster4.ap = 8;
+ monster4.ca = 20;
+ monster4.ally = false;
+ document.getElementById("monName4").textContent = monster4.name;
+ document.getElementById("monHp4").textContent = monster4.hp.toString();
+
+  
+ 
+ function chooseFighters (){
+    var currentEnemy = [];
+     var champion = [];
+         $(".monsters").on("click", function(){
+            console.log("this is "+ this.id);
+            if (this.ally = false){
+                console.log("this is this "+ this)
+             switch (this.id){
+                 case "monster1":
+                 monster1.ally = true;
+                 champion.push(monster1);
+                 $("#monster1").appendTo("#allied")
+                 console.log(champion[0])
+                 break;
+                 case "monster2":
+                 monster2.ally = true;
+                 champion.push(monster2);
+                 $("#monster2").appendTo("#allied")
+                 break;
+                 case "monster3":
+                 monster3.ally = true;
+                 champion.push(monster3);
+                 $("#monster3").appendTo("#allied")
+                 break;
+                 case "monster4":
+                 monster4.ally = true;
+                 champion.push(monster4);
+                 $("#monster4").appendTo("#allied")
+                 break;
+             }}
+             else {
+        //  if (this.ally = false && currentEnemy.length < 1){
+         $(".monsters").on("click", function (){ 
+             switch (this.id){
+                 case "monster1":
+                 monster1.ally = false;
+                 currentEnemy.push(monster1);
+                 $("#monster1").appendTo("#currentEnemy")
+                 break;
+                 case "monster2":
+                 monster2.ally = false;
+                 currentEnemy.push(monster2);
+                 $("#monster2").appendTo("#currentEnemy")
+                 break;
+                 case "monster3":
+                 monster3.ally = false;
+                 currentEnemy.push(monster3);
+                 $("#monster3").appendTo("#currentEnemy")
+                 break;
+                 case "monster4":
+                 monster4.ally = false;
+                 currentEnemy.push(monster4);
+                 $("#monster4").appendTo("#currentEnemy")
+                 break;
+             }
+
+         })
+     }
+         })
+     
+    
+ }
+ 
+chooseFighters();
+//  function Ally () {
+     
+//     $(".monster1").on("click", function(){
+//         monster1.ally = true;
+//         champion = monster1
+//      $(".monster1").appendTo("#allied")
+//      $(".monster1").css("background-color", "green")
+//      $(".monster2").css("background-color", "red")
+//      $(".monster3").css("background-color", "red")
+//      $(".monster4").css("background-color", "red")
+//  });
+//  $(".monster2").on("click", function(){
+//      monster2.ally = true;
+//      champion = monster2
+//      $(".monster2").appendTo("#allied")
+//      $(".monster2").css("background-color", "green")
+//      $(".monster1").css("background-color", "red")
+//      $(".monster3").css("background-color", "red")
+//      $(".monster4").css("background-color", "red")
+//  });
+//  $(".monster3").on("click", function(){
+//      ally = true;
+//      monster3.champion = monster3;
+//      $(".monster3").appendTo("#allied")
+//      $(".monster3").css("background-color", "green")
+//      $(".monster2").css("background-color", "red")
+//      $(".monster1").css("background-color", "red")
+//      $(".monster4").css("background-color", "red")
+//  });
+//  $(".monster4").on("click", function(){
+//      monster4.ally = true;
+//      champion = monster4; 
+//      $(".monster4").appendTo("#allied")
+//      $(".monster4").css("background-color", "green")
+//      $(".monster2").css("background-color", "red")
+//      $(".monster3").css("background-color", "red")
+//      $(".monster1").css("background-color", "red")
+//  });
+// }
+// Ally();
+// currentEnemy();
+
+
+</script>
+</html>

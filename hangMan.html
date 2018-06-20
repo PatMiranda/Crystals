@@ -237,11 +237,19 @@ $("#show").on("click", function () {
             letterGuess = event.key.toUpperCase() ;
                    console.log(letterGuess);
 
-                 var letters = /[a-zA-Z]+/;
-                
+                   var str = letterGuess;
+   var patt = new RegExp(/^[A-Z]$/);
+   console.log("this is patt "+ patt)
+   var res = patt.test(letterGuess);
+   console.log("this is " + res)
+
+            // var letters = /[~`!@#$%^&()_={}[\]:;,.<>+\/?-]/.test(letterGuess);
+                //  var blockSpecialRegex = /[~`!@#$%^&()_={}[\]:;,.<>+\/?-]/;
+                // console.log("this is "+letterGuess);
+                //  
 
 
-                if ( remainingGuesses > 0 && currentWord.indexOf("-") === -1 &&
+                if ( res && remainingGuesses > 0  && 
             wordBox.indexOf(letterGuess) == -1 && guessedLetters.indexOf(letterGuess) == -1){
                 
             

@@ -1,0 +1,51 @@
+.monster1 {
+    width: 300px;
+    background-color: black;
+    border-style: solid;
+    border-width: 3px;
+    border-color: whitesmoke;
+}
+.monster2 {
+    width: 300px;
+    background-color: black;
+    border-style: solid;
+    border-width: 3px;
+    border-color: whitesmoke;
+}
+.monster3 {
+    width: 300px;
+    background-color: black;
+    border-style: solid;
+    border-width: 3px;
+    border-color: whitesmoke;
+}
+.monster4 {
+    width: 300px;
+    background-color: black;
+    border-style: solid;
+    border-width: 3px;
+    border-color: whitesmoke;
+}
+#monsters1 {
+    height: 250px;
+}
+#monsters2 {
+    height: 250px;
+}
+#monsters3 {
+    height: 250px;
+}
+#monsters4 {
+    height: 250px;
+}
+h5 {
+    color: whitesmoke;
+    font-size: 20px;
+    font-family: 'Metamorphous', cursive;
+}
+#monsterBox {
+    padding-bottom: 10px;
+}
+#currentEnemy {
+    padding-bottom: 200px;
+}

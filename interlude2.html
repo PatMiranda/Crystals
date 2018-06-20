@@ -45,17 +45,13 @@
         <div class="footer">
                 <div class="row">
                     <div class="col-md-12">
-                            <audio id="myAudio" src="assets/background.mp3" preload="auto">
-                            </audio>
-                            <audio id="fireAudio" src="assets/01-183- Forest Fire.mp3" preload="auto">
-                            </audio>
-                            <audio id="flameAudio" src="assets/01-181- Fire Ball Burst.mp3" preload="auto">
+                            <audio id="myAudio2" src="assets2/Interlude2.mp3" preload="auto">
                             </audio>
                            
                     <!-- <audio controls id="player">
                             <source src="background.mp3" type="audio/mpeg">
                         </audio> -->
-                        <button onClick="narrationPlay()" class="btn btn-lg btn-dark" title="Play/Pause Song"><span class="fa fa-music"></span></button> 
+                        <button onClick="narratePlay()" class="btn btn-lg btn-dark" title="Play/Pause Song"><span class="fa fa-music"></span></button> 
                     </div>
                 </div>
             </div>
@@ -63,7 +59,22 @@
     
 </body>
 <script>
+    var myAudio2 = document.getElementById("myAudio2");
+var isPlaying = false;
 
+function narratePlay() {
+  if (isPlaying) {
+    myAudio2.pause()
+  } else {
+    myAudio2.play();
+  }
+};
+myAudio2.onplaying = function() {
+  isPlaying = true;
+};
+myAudio2.onpause = function() {
+  isPlaying = false;
+};
 
 </script>
 </html>
