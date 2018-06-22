@@ -161,7 +161,7 @@ var monster4 = new Object();
      var champion = [];
          $(".monsters").on("click", function(){
             console.log("this is "+ this.id);
-            if (this.ally = false){
+            if (champion.length === 0){
                 console.log("this is this "+ this)
              switch (this.id){
                  case "monster1":
@@ -187,7 +187,7 @@ var monster4 = new Object();
                  break;
              }}
              else {
-        //  if (this.ally = false && currentEnemy.length < 1){
+         if (currentEnemy.length === 0){
          $(".monsters").on("click", function (){ 
              switch (this.id){
                  case "monster1":
@@ -210,11 +210,12 @@ var monster4 = new Object();
                  currentEnemy.push(monster4);
                  $("#monster4").appendTo("#currentEnemy")
                  break;
+                
              }
 
          })
      }
-         })
+          } })
      
     
  }
